@@ -141,7 +141,7 @@
   
   /* Category Card */
   .category-card {
-    @apply p-6 rounded-xl border bg-card hover:bg-secondary/50 transition-all duration-200 cursor-pointer group;
+    @apply p-6 rounded-xl border bg-card hover:bg-secondary/50 transition-all duration-200 cursor-pointer;
   }
   
   /* Smooth Animations */
