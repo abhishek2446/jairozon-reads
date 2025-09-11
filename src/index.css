@@ -1,15 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Jairozon Bookstore Design System */
 
 @layer base {
   :root {
+    /* Brand Colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 217 33% 17%;
+    
+    /* Jairozon Brand Palette */
+    --jairozon-blue: 217 91% 25%;
+    --jairozon-blue-light: 217 91% 35%;
+    --jairozon-blue-dark: 217 91% 15%;
+    --jairozon-orange: 24 95% 53%;
+    --jairozon-orange-light: 24 95% 63%;
+    --jairozon-gray: 217 9% 95%;
+    --jairozon-gray-dark: 217 9% 75%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -17,17 +26,17 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: var(--jairozon-blue);
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: var(--jairozon-gray);
+    --secondary-foreground: var(--jairozon-blue);
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: var(--jairozon-gray);
+    --muted-foreground: 217 33% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: var(--jairozon-orange);
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -101,5 +110,53 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  /* Hero Section Styles */
+  .hero-gradient {
+    background: linear-gradient(135deg, hsl(var(--jairozon-blue)) 0%, hsl(var(--jairozon-blue-light)) 100%);
+  }
+  
+  /* Card Hover Effects */
+  .book-card {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
+  
+  /* Button Variants */
+  .btn-jairozon {
+    @apply bg-accent text-accent-foreground hover:bg-accent/90 px-6 py-3 rounded-lg font-medium transition-all duration-200;
+  }
+  
+  .btn-secondary-jairozon {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border px-6 py-3 rounded-lg font-medium transition-all duration-200;
+  }
+  
+  /* Search Bar Styles */
+  .search-bar {
+    @apply w-full max-w-2xl mx-auto relative;
+  }
+  
+  /* Category Card */
+  .category-card {
+    @apply p-6 rounded-xl border bg-card hover:bg-secondary/50 transition-all duration-200 cursor-pointer group;
+  }
+  
+  /* Smooth Animations */
+  .fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
