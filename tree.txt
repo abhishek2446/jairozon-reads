@@ -1,0 +1,8 @@
+C:\Users\abhis\Desktop\jairozon new
+├── .dist
+├── backend
+├── frontend
+└── structure.txt
+
+directory: 3 file: 1
+
