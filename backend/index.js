@@ -15,10 +15,22 @@ const PORT = process.env.PORT || 4000;
 //connectDB
 connectDB();
 // Middlewares
-const allowedOrigins = ['https://jairozon.com'];
+const allowedOrigins = [
+  'https://jairozon.com',
+  'https://www.jairozon.com',
+  'https://jairozon.onrender.com',
+  'http://localhost:5173', // optional for local dev
+];
+
 app.use(cors({
-  origin: allowedOrigins,
-  credentials: true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
 }));
 app.use(cookieParser());
 app.use(express.json());
