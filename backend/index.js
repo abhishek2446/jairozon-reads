@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 4000;
 //connectDB
 connectDB();
 // Middlewares
-const allowedOrigins = ['http://localhost:5173'];
+const allowedOrigins = ['http://jairozon.com'];
 app.use(cors({
   origin: allowedOrigins,
   credentials: true
